@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css specificity</title>
+</head>
+<style>
+    /* inline style 1000 points specificity>
+     id selector 100> 
+     class or attributes 10>
+      element selectors 1>
+       universal selector 0 */
+    h1{
+        color: pink;
+    }
+    /* h1+ cred =1+10 specificity */
+    h1.cred{
+        color: red;
+    }
+    .cpurple{
+        color: purple;
+    }
+    .cgreen{
+        color: green;
+    }
+
+    /* attributes selector */
+    [data-a]{
+        color: violet /*!important*/;
+    }
+</style>
+<body>
+    <div>
+        <h1  class="cred curple cgreen" data-a="x">this is css specificity</h1>
+    </div>
+</body>
+</html>

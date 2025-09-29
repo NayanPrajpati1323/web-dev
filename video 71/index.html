@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .cont1{
+        color: red;
+    }
+</style>
+<body>
+        <div class="container cont1 cont2 cont3">
+            <div class="box">
+                im box
+                <span class="abs" style="border:2px solid black ;">
+                    im blue
+                </span>
+            </div>
+        </div>
+
+        <script>
+            // let div = document.createElement("div");
+            // div.innerHTML = "this is new div"
+            // div.setAttribute("class","contain")
+            // document.querySelector(".container").append(div)
+            
+            let cont = document.querySelector(".container")
+            cont.insertAdjacentHTML("afterend", " <b> this is nayan prajapati </b> ")
+            cont.insertAdjacentHTML("afterbegin", " <b> this is kirsa prajapati </b> ")
+            cont.insertAdjacentHTML("beforeend", " <b> this is preja prajapati </b> ")
+            cont.insertAdjacentHTML("beforebegin", " <b> this is ndeksh prajapati </b> ")
+
+            cont.insertAdjacentText("afterbegin","chal hat yaha se")
+        </script>
+</body>
+</html>

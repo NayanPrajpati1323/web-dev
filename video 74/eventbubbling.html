@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event bubbling</title>
+</head>
+<style>
+    
+    .container {
+        background-color: rgb(10, 25, 0);
+        color: rgb(186, 252, 6);
+        margin: 10px;
+        padding: 10px;
+        border: 2px solid black;
+        height: 95vh;
+        width: 95vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .childcontainer {
+        background-color: rgb(50, 117, 5);
+        color: rgb(3, 39, 0);
+        margin: 10px;
+        padding: 10px;
+        border: 2px solid black;
+        height: 85vh;
+        width: 85vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .child {
+        background-color: yellow;
+        color: black;
+        margin: 10px;
+        padding: 10px;
+        border: 2px solid black;
+        height: 75vh;
+        width: 75vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: large;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <section class="childcontainer">
+            <div class="child">
+                this is child
+            </div>
+        </section>
+    </div>
+    <script>
+        document.querySelector(".child").addEventListener("click", (e) => {
+            e.stopPropagation() //using this we can run only one event
+            alert("child was clickd")
+        })
+        document.querySelector(".childcontainer").addEventListener("click", () => {
+            alert("childcontainer was clickd")
+        })
+        document.querySelector(".container").addEventListener("click", () => {
+            alert("container was clickd")
+        })
+
+        function getrandomcolor() {
+            let val1 = Math.ceil(0 + Math.random() * 255)
+            let val2 = Math.ceil(0 + Math.random() * 255)
+            let val3 = Math.ceil(0 + Math.random() * 255)
+            return `rgb(${val1} ${val2} ${val3})`
+        }
+
+        // let a = setInterval(() => {
+        //     document.querySelector(".container").style.background = getrandomcolor()
+        //     document.querySelector(".childcontainer").style.background = getrandomcolor()
+        //     document.querySelector(".child").style.background = getrandomcolor()
+        //     document.body.style.background = getrandomcolor()
+
+        // }, 100);
+        // console.log(a)
+        // // clearInterval(a)
+
+        let a = setTimeout(() => {
+            document.querySelector(".container").style.background = getrandomcolor()
+            document.querySelector(".childcontainer").style.background = getrandomcolor()
+            document.querySelector(".child").style.background = getrandomcolor()
+            document.body.style.background = getrandomcolor()
+
+        }, 10000);
+        console.log(a)
+        // clearTimeout(a)
+        
+    </script>
+</body>
+
+</html>
